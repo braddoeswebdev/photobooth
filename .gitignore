@@ -9,6 +9,7 @@
 /test/version_tmp/
 /tmp/
 /public/drop/*
+/public/.sasscache
 
 ## Specific to RubyMotion:
 .dat*

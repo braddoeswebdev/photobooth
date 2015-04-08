@@ -12,7 +12,7 @@ configure do
 end
 
 get '/' do
-  "Hello, world!"
+  erb "Hello, orld!"
 end
 
 put '/:filename' do
@@ -25,4 +25,12 @@ end
 
 get '/list' do
   erb :list
+end
+
+get '/slide' do
+    erb :slide
+end
+
+get '/grid' do
+    erb :grid
 end

@@ -1,11 +1,11 @@
-  <ul id="list">
+  <ul id="grid">
     <% PhotoList.each do |fn| %>
-      <li><%= fn %></li>
+      <li><img src="/drop/<%= fn %>"></img></li>
     <% end %>
   </ul>
   <script type="text/javascript">
     var client = new Faye.Client('http://localhost:9292/faye')
     client.subscribe('/new', function(message){
-      $('#list').append("<li>" + message.name + "</li>")
+      $('#grid').append('<li><img src="/drop/' + message.name + '"></img></li>');
     });
   </script>

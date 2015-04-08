@@ -1,0 +1,23 @@
+body {
+  background: #999; }
+
+#grid {
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center; }
+  #grid li {
+    display: block;
+    width: 16vw;
+    height: 22vh;
+    margin-left: 1vw;
+    margin-bottom: 4vh; }
+    #grid li img {
+      max-width: 16vw;
+      max-height: 22vh;
+      padding: 0;
+      border: thin solid #444; }
+
+/*# sourceMappingURL=main.css.map */
