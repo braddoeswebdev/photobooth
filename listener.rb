@@ -1,11 +1,15 @@
 require 'httparty'
 require 'listen'
 
+secret = File.read('.secret')
+
 listener = Listen.to('public/drop/') do |modified, added, removed|
   added.each do |fullpath|
     fn = fullpath.split('/').last
-    puts "Added #{fn}"
-    HTTParty.put('http://localhost:4567/' + fn)
+    if fn.match /\.JPG$/i
+      puts "Added #{fn}"
+      HTTParty.put('http://localhost:4567/' + fn, secret: secret)
+    end
   end
   modified.each do |fullpath|
     puts "Changed #{fullpath}"

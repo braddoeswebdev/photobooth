@@ -5,6 +5,9 @@
 </head>
 <body>
   <ul id="list">
+    <% PhotoList.each do |fn| %>
+      <li><%= fn %></li>
+    <% end %>
   </ul>
   <script type="text/javascript">
     var client = new Faye.Client('http://localhost:9292/faye')
