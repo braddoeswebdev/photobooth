@@ -37,6 +37,9 @@ GEM
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
+    mail (2.6.3)
+      mime-types (>= 1.16, < 3)
+    mime-types (2.4.3)
     multi_json (1.11.0)
     multi_xml (0.5.5)
     rack (1.6.0)
@@ -70,6 +73,7 @@ DEPENDENCIES
   faye
   httparty
   listen
+  mail
   sass
   sinatra
   thin

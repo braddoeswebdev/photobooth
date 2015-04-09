@@ -8,6 +8,7 @@ listener = Listen.to('public/drop/') do |modified, added, removed|
     fn = fullpath.split('/').last
     if fn.match /\.JPG$/i
       puts "Added #{fn}"
+      `convert "#{fullpath.gsub('/','\\')}": -resize 500 "#{fullpath.gsub('/','\\')}r"`
       HTTParty.put('http://localhost:4567/' + fn, secret: secret)
     end
   end

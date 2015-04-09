@@ -1,11 +1,11 @@
-  <ul id="list">
-    <% PhotoList.each do |fn| %>
-      <li><%= fn %></li>
-    <% end %>
-  </ul>
-  <script type="text/javascript">
-    var client = new Faye.Client('http://localhost:9292/faye')
-    client.subscribe('/new', function(message){
-      $('#list').append("<li>" + message.name + "</li>")
-    });
-  </script>
+<ul id="list">
+  <% PhotoList.each do |fn| %>
+    <li><%= fn %></li>
+  <% end %>
+</ul>
+<script type="text/javascript">
+  var client = new Faye.Client('http://localhost:9292/faye')
+  client.subscribe('/new', function(message){
+    $('#list').append("<li>" + message.name + "</li>")
+  });
+</script>

@@ -19,9 +19,19 @@ body {
 
     img {
       max-width: 16vw;
-      max-height: 22vh;
+      max-height: 30vh;
       padding: 0;
       border: thin solid #444;
     }
+  }
+}
+
+#slider {
+  button {
+    display: none;
+  }
+  img {
+    width: 24vw;
+    padding-right: 1vw;
   }
 }

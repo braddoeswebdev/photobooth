@@ -1,11 +1,25 @@
-  <ul id="list">
+  <div id="slider">
     <% PhotoList.each do |fn| %>
-      <li><%= fn %></li>
+      <div><img data-lazy="/drop/<%= fn %>r"></img></div>
     <% end %>
-  </ul>
+  </div>
   <script type="text/javascript">
+
     var client = new Faye.Client('http://localhost:9292/faye')
     client.subscribe('/new', function(message){
       $('#list').append("<li>" + message.name + "</li>")
+      $('#slider').slick('slickAdd','<div><img src="/drop/' + message.name + 'r"></img></div>')
+    });
+
+    $(function() {
+      $('#slider').slick({
+        lazyLoad: 'progressive',
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 100,
+        arrows: false,
+        speed: 2200
+      });
     });
   </script>

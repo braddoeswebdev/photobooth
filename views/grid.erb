@@ -1,11 +1,20 @@
   <ul id="grid">
     <% PhotoList.each do |fn| %>
-      <li><img src="/drop/<%= fn %>"></img></li>
+      <li><img src="/drop/<%= fn %>r"></img></li>
     <% end %>
   </ul>
   <script type="text/javascript">
     var client = new Faye.Client('http://localhost:9292/faye')
     client.subscribe('/new', function(message){
       $('#grid').append('<li><img src="/drop/' + message.name + '"></img></li>');
+    });
+
+    $("img").on('click', function() {
+      src = $(this).attr('src');
+      addr = prompt('Who should I email this to?');
+      if(addr) {
+        $.post('/sendto', {src: src, addr: addr});
+        alert("OK!");
+      }
     });
   </script>
