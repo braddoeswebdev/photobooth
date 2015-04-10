@@ -1,8 +1,32 @@
+@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
 body {
-  background: #999; }
+  background: #999;
+  font-family: sans-serif; }
+
+h1 {
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  font-size: 4em; }
+
+#grid-head {
+  text-align: center;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 18vh;
+  width: 100%;
+  background-color: #999;
+  border-bottom: thick outset #111; }
+  #grid-head p {
+    font-size: 1.8em;
+    margin: 0; }
 
 #grid {
   margin: auto;
+  margin-top: 22vh;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -20,10 +44,13 @@ body {
       padding: 0;
       border: thin solid #444; }
 
-#slider button {
-  display: none; }
-#slider img {
-  width: 24vw;
-  padding-right: 1vw; }
+#slider {
+  margin: auto; }
+  #slider img {
+    display: block;
+    max-width: 90vw;
+    max-height: 80vh;
+    margin: auto;
+    border: 2px solid #222; }
 
 /*# sourceMappingURL=main.css.map */

@@ -34,6 +34,14 @@ put '/:filename' do
   end
 end
 
+delete '/:filename' do
+  if params[:secret] = settings.secret
+    settings.faye.publish('/delete', 'name' => params['filename'])
+    PhotoList.delete params[:filename]
+    [200, "OK"]
+  end
+end
+
 get '/list' do
   erb :list
 end

@@ -10,6 +10,7 @@
 /tmp/
 /public/drop/*
 /public/.sasscache
+/public/drop/Thumbs.db
 
 ## Specific to RubyMotion:
 .dat*

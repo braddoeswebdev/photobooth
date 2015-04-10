@@ -8,7 +8,8 @@ listener = Listen.to('public/drop/') do |modified, added, removed|
     fn = fullpath.split('/').last
     if fn.match /\.JPG$/i
       puts "Added #{fn}"
-      `convert "#{fullpath.gsub('/','\\')}": -resize 500 "#{fullpath.gsub('/','\\')}r"`
+      puts "convert \"public\\drop\\#{fn}\" -resize 500 \"public\\drop\\#{fn}r\""
+      `convert "public\\drop\\#{fn}" -resize 500 "public\\drop\\#{fn}r"`
       HTTParty.put('http://localhost:4567/' + fn, secret: secret)
     end
   end
@@ -16,7 +17,11 @@ listener = Listen.to('public/drop/') do |modified, added, removed|
     puts "Changed #{fullpath}"
   end
   removed.each do |fullpath|
-    puts "Deleted #{fullpath}"
+    fn = fullpath.split('/').last
+    if fn.match /\.JPG$/i
+      puts "Deleted #{fullpath}"
+      HTTParty.delete('http://localhost:4567/' + fn, secret: secret)
+    end
   end
 end
 puts "Listening for changes!"
