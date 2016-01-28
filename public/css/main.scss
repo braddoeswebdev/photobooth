@@ -55,6 +55,35 @@ h1 {
   }
 }
 
+#grid-modal {
+	position: fixed;
+	display: none;
+	width: 80vw;
+	height: 80vh;
+	top: 10vh;
+	left: 10vw;
+	background-color: #bbb;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
+	text-align: center;
+
+	.box {
+		margin-top: 1vh;
+		margin-bottom: 1vh;
+	}
+
+	.img-box {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+	}
+
+	img {
+		display: block;
+	}
+}
+
 #slider {
   margin: auto;
   img {

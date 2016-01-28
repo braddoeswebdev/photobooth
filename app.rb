@@ -8,8 +8,8 @@ configure do
   mailoptions = { :address              => "smtp.gmail.com",
                   :port                 => 587,
                   :domain               => 'wl.k12.in.us',
-                  :user_name            => '',
-                  :password             => '',
+                  :user_name            => 'noreply@wl.k12.in.us',
+                  :password             => 'marker!vneck.mandela',
                   :authentication       => 'plain',
                   :enable_starttls_auto => true  }
   Mail.defaults do
