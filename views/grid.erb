@@ -36,7 +36,7 @@ var authToken = "";
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '1678861672399273',
+    appId      : '<%= FB_APP_ID %>',
     cookie     : true,  // enable cookies to allow the server to access
                         // the session
     xfbml      : true,  // parse social plugins on this page
@@ -79,7 +79,12 @@ var authToken = "";
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
 
-      FB.api('/me/photos', 'post', {})
+      $.get('/fb-pic', {fn: $('#grid-modal img').attr('src'), token: authToken}, function() {
+        FB.logout(function(r){
+          $('#grid-modal').css('display', 'none');
+          authToken = '';
+        });
+      });
     });
   }
 </script>
@@ -87,6 +92,7 @@ var authToken = "";
 <div id="grid-head">
     <h1>Photobooth!</h1>
     <p>Click a photo to email it to someone!</p>
+    <p id="status"></p>
   </div>
 
   <ul id="grid">

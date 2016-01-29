@@ -1,7 +1,9 @@
 require 'sinatra'
 require 'faye'
 require 'mail'
+require 'koala'
 
+FB_APP_ID = File.read('.fp-app')
 PhotoList = []
 
 configure do
@@ -18,6 +20,9 @@ configure do
   Dir['./public/drop/*.jpg'].each do |f|
     PhotoList << f.split('/').last
   end
+  Koala.http_service.http_options = {
+    ssl: { verify: false }
+  }
   set :faye, Faye::Client.new('http://localhost:9292/faye')
   set :secret, File.read('.secret')
 end
@@ -66,4 +71,11 @@ post '/sendto' do
 
     mail.deliver!
   end
+end
+
+get '/fb-pic' do
+  fn = params[:fn].gsub('JPGr','JPG').gsub('/drop','public/drop')
+  graph = Koala::Facebook::API.new(params[:token])
+  graph.put_picture(fn)
+  [200, "OK"]
 end
