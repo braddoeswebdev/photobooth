@@ -2,18 +2,13 @@ require 'sinatra'
 require 'faye'
 require 'mail'
 require 'koala'
+require 'yaml'
 
 FB_APP_ID = File.read('.fp-app')
 PhotoList = []
 
 configure do
-  mailoptions = { :address              => "smtp.gmail.com",
-                  :port                 => 587,
-                  :domain               => 'wl.k12.in.us',
-                  :user_name            => 'noreply@wl.k12.in.us',
-                  :password             => 'marker!vneck.mandela',
-                  :authentication       => 'plain',
-                  :enable_starttls_auto => true  }
+  mailoptions = YAML.load_file('mail.conf')
   Mail.defaults do
     delivery_method :smtp, mailoptions
   end
