@@ -1,8 +1,8 @@
 ---
 :address: smtp.gmail.com
 :port: 587
-:domain: wl.k12.in.us
-:user_name: noreply@wl.k12.in.us
-:password: marker!vneck.mandela
+:domain: gmail.com
+:user_name: someone@gmail.com
+:password: password
 :authentication: plain
 :enable_starttls_auto: true
